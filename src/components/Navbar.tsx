@@ -14,7 +14,7 @@ export default function Navbar({ activeTab, setActiveTab }: NavbarProps) {
     { id: 'about', label: 'About Us' },
     { id: 'products', label: 'Products & Services' },
     { id: 'branches', label: 'Branches' },
-    { id: 'portal', label: 'Apply & Tools' },
+    { id: 'portal', label: 'Calculators & Tools' },
     { id: 'contact', label: 'Contact Support' },
   ];
 
@@ -82,7 +82,7 @@ export default function Navbar({ activeTab, setActiveTab }: NavbarProps) {
               onClick={() => handleNavClick('portal')}
               className="ml-4 bg-amber-500 hover:bg-amber-600 text-white px-5 py-2 rounded font-bold text-sm flex items-center gap-2 shadow-sm transition-transform hover:-translate-y-0.5 active:translate-y-0"
             >
-              Open Account
+              Loan Calculator
             </button>
           </nav>
 
@@ -123,7 +123,7 @@ export default function Navbar({ activeTab, setActiveTab }: NavbarProps) {
                 onClick={() => handleNavClick('portal')}
                 className="w-full bg-amber-500 hover:bg-amber-600 text-white py-3 rounded font-bold text-center block shadow-sm"
               >
-                Open Account Online
+                Loan Calculator
               </button>
             </div>
           </div>

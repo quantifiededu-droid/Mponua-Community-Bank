@@ -1,4 +1,4 @@
-import { Building2, Phone, Mail, Clock, ShieldAlert, Award, FileSpreadsheet } from 'lucide-react';
+import { Building2, Phone, Mail, Clock, ShieldAlert, Award, FileSpreadsheet, Facebook, Linkedin, Twitter } from 'lucide-react';
 
 interface FooterProps {
   setActiveTab: (tab: string) => void;
@@ -32,6 +32,42 @@ export default function Footer({ setActiveTab }: FooterProps) {
             <div className="flex space-x-3">
               <span className="bg-slate-800 p-2 rounded text-white text-xs font-semibold border border-slate-705">BOG Licensed</span>
               <span className="bg-slate-800 p-2 rounded text-white text-xs font-semibold border border-slate-705">GDPC Safeguarded</span>
+            </div>
+            
+            <div className="mt-6">
+              <span className="text-xs uppercase font-bold text-slate-500 tracking-wider block mb-3">Follow Our Updates</span>
+              <div className="flex items-center space-x-3">
+                <a
+                  href="https://facebook.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-slate-800 hover:bg-amber-500 hover:text-white p-2.5 rounded-lg text-slate-400 transition-colors border border-slate-800 hover:border-amber-500/50 flex items-center justify-center cursor-pointer"
+                  title="Follow us on Facebook"
+                  aria-label="Facebook Page"
+                >
+                  <Facebook className="h-4 w-4" />
+                </a>
+                <a
+                  href="https://linkedin.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-slate-800 hover:bg-amber-500 hover:text-white p-2.5 rounded-lg text-slate-400 transition-colors border border-slate-800 hover:border-amber-500/50 flex items-center justify-center cursor-pointer"
+                  title="Follow us on LinkedIn"
+                  aria-label="LinkedIn Profile"
+                >
+                  <Linkedin className="h-4 w-4" />
+                </a>
+                <a
+                  href="https://twitter.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-slate-800 hover:bg-amber-500 hover:text-white p-2.5 rounded-lg text-slate-400 transition-colors border border-slate-800 hover:border-amber-500/50 flex items-center justify-center cursor-pointer"
+                  title="Follow us on Twitter"
+                  aria-label="Twitter Feed"
+                >
+                  <Twitter className="h-4 w-4" />
+                </a>
+              </div>
             </div>
           </div>
 

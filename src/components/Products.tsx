@@ -107,12 +107,12 @@ export default function Products({ selectedCategory, setSelectedCategory, setAct
                   </div>
                   <button
                     onClick={() => {
-                      setActiveTab('portal');
+                      setActiveTab('branches');
                       window.scrollTo({ top: 0, behavior: 'smooth' });
                     }}
                     className="w-full sm:w-auto bg-blue-900 hover:bg-slate-900 text-white px-6 py-3 rounded-xl font-bold text-xs flex items-center justify-center space-x-2 hover:shadow cursor-pointer animate-fade-in"
                   >
-                    <span>Instant Online Application</span>
+                    <span>Inquire At Nearest Branch</span>
                     <ArrowRight className="h-4.5 w-4.5" />
                   </button>
                 </div>

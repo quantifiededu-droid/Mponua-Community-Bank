@@ -5,6 +5,8 @@ import {
 } from 'lucide-react';
 import { LATEST_NEWS, PRODUCTS } from '../data';
 import { BankProduct } from '../types';
+// @ts-ignore
+import cocoaFarmersImg from '../assets/images/cocoa_farmers_mponua_1779802964608.png';
 
 interface HomeProps {
   setActiveTab: (tab: string) => void;
@@ -22,8 +24,15 @@ export default function Home({ setActiveTab, setSelectedProductCategory }: HomeP
 
   const slides = [
     {
+      title: 'Supporting Cocoa Farming Families',
+      description: 'Strengthening local enterprises, crop yields, and family livelihoods since 1983. Proudly serving Ghanaian cocoa farming cooperatives and small businesses with community-first banking.',
+      image: cocoaFarmersImg,
+      ctaText: 'Learn About Agri Loans',
+      ctaAction: 'products'
+    },
+    {
       title: 'Our Community. Our Future. Our Bank.',
-      description: 'Strengthening local enterprises and cocoa farmers in the Eastern Region since 1983. Formerly Mponua Rural Bank, now reimagined as Mponua Community Bank.',
+      description: 'Strengthening local enterprises and agricultural builders in the Eastern & neighboring regions. Formerly Mponua Rural Bank, now reimagined as Mponua Community Bank.',
       image: 'https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&q=80&w=1600',
       ctaText: 'Explore Our Core Products',
       ctaAction: 'products'
@@ -32,15 +41,15 @@ export default function Home({ setActiveTab, setSelectedProductCategory }: HomeP
       title: 'Drive Your Business Forward.',
       description: 'Unlock flexible working capital, small business Susu credits, and group loan cycles tailored for traders, market vendors, and cooperative members.',
       image: 'https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&q=80&w=1600',
-      ctaText: 'Calculate Loan & Apply',
+      ctaText: 'Calculate Loan Terms',
       ctaAction: 'portal'
     },
     {
       title: 'Secure Savings For Peaceful Security.',
       description: 'Your deposits are 100% fortified under Bank of Ghana guidelines. Check out high-yield fixed deposits, kiddy plans, and regular interest savings.',
       image: 'https://images.unsplash.com/photo-1554197150-b99a580bb7a8?auto=format&fit=crop&q=80&w=1600',
-      ctaText: 'Open Your Account Today',
-      ctaAction: 'portal'
+      ctaText: 'View Our Branch Directory',
+      ctaAction: 'branches'
     }
   ];
 
@@ -230,10 +239,10 @@ export default function Home({ setActiveTab, setSelectedProductCategory }: HomeP
                 <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-900 group-hover:bg-blue-900 group-hover:text-white mb-6 transition-all duration-300">
                   <Users className="h-5 w-5" />
                 </div>
-                <h3 className="text-lg font-bold text-slate-900 mb-2">Agency Registration</h3>
-                <p className="text-sm text-slate-500 mb-4">Submit simple digital form details online to secure official verification slots.</p>
+                <h3 className="text-lg font-bold text-slate-900 mb-2">Personal Loan Estimator</h3>
+                <p className="text-sm text-slate-500 mb-4">Calculate customized repayment values, interest ratios, and periods dynamically.</p>
               </div>
-              <span className="text-blue-600 text-xs font-bold flex items-center gap-1 uppercase tracking-wider mt-4">Open Online →</span>
+              <span className="text-blue-600 text-xs font-bold flex items-center gap-1 uppercase tracking-wider mt-4">Try Calculator →</span>
             </div>
 
           </div>
@@ -471,7 +480,7 @@ export default function Home({ setActiveTab, setSelectedProductCategory }: HomeP
                 onClick={() => setActiveTab('portal')}
                 className="mt-6 w-full py-3.5 bg-blue-900 hover:bg-blue-800 text-white text-sm font-bold rounded shadow hover:shadow-lg transition-all cursor-pointer text-center block"
               >
-                Apply for Savings Account Online
+                Use Personal Loan Estimator
               </button>
             </div>
 

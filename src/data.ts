@@ -15,7 +15,7 @@ export const BRANCHES: Branch[] = [
   {
     id: 'nkawkaw',
     name: 'Nkawkaw Branch',
-    location: 'Commercial Street, Nkawkaw, Ghana',
+    location: 'Commercial Street, Nkawkaw, Eastern Region, Ghana',
     phone: '+233 (0) 34 209 1122',
     email: 'nkawkaw@mponuacb.com',
     hours: 'Mon - Fri: 8:00 AM - 4:00 PM | Sat: 9:00 AM - 2:00 PM',
@@ -24,20 +24,9 @@ export const BRANCHES: Branch[] = [
     details: 'Serving the bustling trading hub of Nkawkaw with tailored SME loans, Susu banking, and modern money transfer options.'
   },
   {
-    id: 'anyinam',
-    name: 'Anyinam Branch',
-    location: 'Main Road, Anyinam, Eastern Region, Ghana',
-    phone: '+233 (0) 34 209 3344',
-    email: 'anyinam@mponuacb.com',
-    hours: 'Mon - Fri: 8:00 AM - 4:00 PM',
-    manager: 'Ms. Gladys Osei-Wusu',
-    coordinates: { lat: 6.3811, lng: -0.5211 },
-    details: 'Conveniently situated along the Accra-Kumasi highway, Anyinam branch supports farmers, local mining services, and retail traders.'
-  },
-  {
     id: 'new-abirem',
     name: 'New Abirem Branch',
-    location: 'Market Street, Near District Assembly, New Abirem, Ghana',
+    location: 'Market Street, Near District Assembly, New Abirem, Eastern Region, Ghana',
     phone: '+233 (0) 50 987 6543',
     email: 'newabirem@mponuacb.com',
     hours: 'Mon - Fri: 8:00 AM - 4:00 PM | Sat: 8:30 AM - 1:00 PM',
@@ -48,7 +37,7 @@ export const BRANCHES: Branch[] = [
   {
     id: 'koforidua',
     name: 'Koforidua Branch',
-    location: 'Central Market Road, Koforidua, Ghana',
+    location: 'Central Market Road, Koforidua, Eastern Region, Ghana',
     phone: '+233 (0) 34 202 5566',
     email: 'koforidua@mponuacb.com',
     hours: 'Mon - Fri: 8:00 AM - 4:30 PM | Sat: 9:00 AM - 3:00 PM',
@@ -57,15 +46,48 @@ export const BRANCHES: Branch[] = [
     details: 'Our regional powerhouse branch in the Eastern Regional Capital. Excellent for corporate and government agency salary accounts.'
   },
   {
-    id: 'jejeti',
-    name: 'Jejeti Branch',
-    location: 'Station Road, Jejeti, Ghana',
-    phone: '+233 (0) 55 456 7890',
-    email: 'jejeti@mponuacb.com',
+    id: 'obogu',
+    name: 'Obogu Branch',
+    location: 'Obogu Town Road, Obogu, Ashanti Region, Ghana',
+    phone: '+233 (0) 55 112 3344',
+    email: 'obogu@mponuacb.com',
+    hours: 'Mon - Fri: 8:00 AM - 4:00 PM',
+    manager: 'Mr. Frank Osei-Boakye',
+    coordinates: { lat: 6.5167, lng: -1.1333 },
+    details: 'Empowering the agricultural heartland of Obogu with custom farming credit cycles, group Susu contributions, and local remittance terminals.'
+  },
+  {
+    id: 'asankare',
+    name: 'Asankare Branch',
+    location: 'Main Highway, Asankare, Ashanti Region, Ghana',
+    phone: '+233 (0) 55 223 4455',
+    email: 'asankare@mponuacb.com',
+    hours: 'Mon - Fri: 8:00 AM - 4:00 PM',
+    manager: 'Ms. Rita Boatemaa',
+    coordinates: { lat: 6.5925, lng: -1.0333 },
+    details: 'Strategically located in Asankare to support highway transport logistics, timber operators, and agricultural supply chains.'
+  },
+  {
+    id: 'asuboni-rails',
+    name: 'Asuboni Rails Branch',
+    location: 'Station Road, Asuboni Rails, Eastern Region, Ghana',
+    phone: '+233 (0) 55 334 5566',
+    email: 'asuboni@mponuacb.com',
     hours: 'Mon - Fri: 8:00 AM - 4:00 PM',
     manager: 'Mr. Samuel Boadi',
-    coordinates: { lat: 6.4522, lng: -0.6122 },
-    details: 'Fostering trade and agricultural production in Jejeti town since inception with customized loans and daily Susu mobilization.'
+    coordinates: { lat: 6.4883, lng: -0.8350 },
+    details: 'Serving the historical railway community of Asuboni Rails, driving retail trader deposits, crop purchasing cycles, and mobile cash payouts.'
+  },
+  {
+    id: 'konongo',
+    name: 'Konongo Branch',
+    location: 'Accra-Kumasi Highway, Konongo, Ashanti Region, Ghana',
+    phone: '+233 (0) 34 230 4455',
+    email: 'konongo@mponuacb.com',
+    hours: 'Mon - Fri: 8:00 AM - 4:30 PM | Sat: 9:00 AM - 1:00 PM',
+    manager: 'Mrs. Grace Appiah-Dankwah',
+    coordinates: { lat: 6.6167, lng: -1.2167 },
+    details: 'Accelerating enterprise financing in the gold mining and trading city of Konongo. Offering dynamic working capital and salary overdraft terms.'
   }
 ];
 
@@ -107,30 +129,65 @@ export const TEAM: TeamMember[] = [
   },
   {
     id: 'mgt-1',
-    name: 'Mr. Abraham K. Asare',
+    name: 'Felicia Boamah Hall',
     role: 'Chief Executive Officer (CEO)',
-    bio: 'A passionate, results-driven retail banking professional with 24 years of experience. He leads the strategic direction of Mponua Community Bank, transitioning traditional rural banking to modern digital and mobile platforms.',
+    bio: 'An accomplished financial executive with over 20 years of retail and corporate banking experience. She guides the strategic vision of the bank, emphasizing digital solutions, strong regulatory compliance, and agricultural financing.',
     type: 'management'
   },
   {
     id: 'mgt-2',
-    name: 'Mrs. Beatrice Mensah',
-    role: 'Head of Credit Operations',
-    bio: 'Expert credit risk analyst and rural lender. She designed our signature "Susu Farmers Reward Loans" and oversees credit disbursements, monitoring, and debt management.',
+    name: 'Kwabena Larbi Donkor',
+    role: 'Head of Operations',
+    bio: 'Leads our daily banking operations, branch transactions, and retail service delivery networks. Dedicated to driving efficiency and excellent service for farmers and small businesses across all branch outlets.',
     type: 'management'
   },
   {
     id: 'mgt-3',
-    name: 'Mr. Emmanuel Darko',
-    role: 'Head of ICT & Electronic Banking',
-    bio: 'Driving modern automation and mobile wallets integration. Leads the design of user interfaces, ATMs, network coverage across branches, and cyber protection systems.',
+    name: 'Mrs. Cherub Keni Okoto',
+    role: 'Head of Finance',
+    bio: 'Leads our treasury management, financial reporting, and capital allocation strategies. Possesses extensive experience in financial planning and ensures strict adherence to Bank of Ghana standard guidelines.',
     type: 'management'
   },
   {
     id: 'mgt-4',
-    name: 'Ms. Grace Ofori-Atta',
-    role: 'Head of Finance & Internal Audit',
-    bio: 'Chartered Accountant (ICAG) in charge of financial planning, liquidity safeguards, statutory reports to the Bank of Ghana, and apex compliance protocols.',
+    name: 'Mr. Ebenezer Nortey',
+    role: 'Head of Internal Audit',
+    bio: 'Maintains independent oversight of our internal controls, governance practices, and operational processes. Ensures transparency, risk mitigation, and the highest standard of accountability within all branches.',
+    type: 'management'
+  },
+  {
+    id: 'mgt-5',
+    name: 'Mr. Eric Osei Ameyaw',
+    role: 'Head of Credits',
+    bio: 'Expert credit analyst and policy designer. Oversees small-to-medium enterprise (SME) loans, agricultural credit operations, Susu schemes, and ensures healthy micro-loan portfolio performance.',
+    type: 'management'
+  },
+  {
+    id: 'mgt-6',
+    name: 'Mr. Augustine Manu',
+    role: 'Head of Marketing & Mobilisation',
+    bio: 'Responsible for community engagement, mobilization campaigns, and cooperative relationships. Works directly with farming unions and market traders to align our products with customer needs.',
+    type: 'management'
+  },
+  {
+    id: 'mgt-7',
+    name: 'Mr. Gyamera Abankwa Bright',
+    role: 'Human Resource Manager',
+    bio: 'Directs employee recruitment, talent development, and staff wellness programs. Cultivates a professional, customer-focused team dedicated to the bank’s community-driven mission.',
+    type: 'management'
+  },
+  {
+    id: 'mgt-8',
+    name: 'Mr. Anthony Dankyi Osei-Mireku',
+    role: 'Head of Information Technology',
+    bio: 'Maintains network connectivity, digital security systems, and banking software. Ensures seamless, reliable real-time transactions and safe digital channels for all depositors.',
+    type: 'management'
+  },
+  {
+    id: 'mgt-9',
+    name: 'Mr. Bismark Agyekum',
+    role: 'Head, Compliance / Risk & Compliance Manager',
+    bio: 'Monitors legal compliance, regulatory standards, and anti-money laundering (AML) campaigns. Focuses on risk management and safeguards the integrity of our asset portfolio.',
     type: 'management'
   }
 ];

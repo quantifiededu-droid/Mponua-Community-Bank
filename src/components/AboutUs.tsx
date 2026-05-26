@@ -82,7 +82,7 @@ export default function AboutUs() {
               <p className="text-xs sm:text-sm text-amber-905 italic font-medium">
                 "We remain deeply rooted in local service, but our mechanisms have been fully modernized with real-time digital balance alerts, fiber linkages, and high-safeguard systems."
               </p>
-              <span className="text-xs text-amber-700 font-bold block mt-2">— Mr. Abraham K. Asare, CEO</span>
+              <span className="text-xs text-amber-700 font-bold block mt-2">— Felicia Boamah Hall, CEO</span>
             </div>
           </div>
 
@@ -183,7 +183,7 @@ export default function AboutUs() {
           </p>
 
           {/* Leaders Toggle */}
-          <div className="flex bg-slate-100 p-1 rounded-lg w-64 mx-auto mt-8">
+          <div className="flex bg-slate-100 p-1 rounded-lg w-72 sm:w-80 mx-auto mt-8">
             <button
               onClick={() => {
                 setActiveLeaderType('board');
@@ -198,6 +198,7 @@ export default function AboutUs() {
               Board of Directors
             </button>
             <button
+              id="tab_btn_management_members"
               onClick={() => {
                 setActiveLeaderType('management');
                 setSelectedMemberId(null);
@@ -208,42 +209,119 @@ export default function AboutUs() {
                   : 'text-slate-600 hover:text-blue-900'
               }`}
             >
-              Management Office
+              Management Members
             </button>
           </div>
         </div>
 
-        {/* Leaders Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {filteredTeam.map((member: TeamMember) => (
-            <div 
-              key={member.id}
-              onClick={() => setSelectedMemberId(selectedMemberId === member.id ? null : member.id)}
-              className="bg-white border border-slate-100 rounded-2xl p-6 shadow-sm hover:shadow-md hover:border-blue-500/10 transition-all cursor-pointer relative flex flex-col justify-between"
-            >
-              <div>
-                {/* Standard abstract initial circle instead of random face placeholders for cleaner corporate design */}
-                <div className="w-16 h-16 bg-blue-100 text-blue-900 rounded flex items-center justify-center font-bold text-xl mb-4">
-                  {member.name.split(' ').filter(n => !n.includes('(')).map(n => n[0]).join('')}
+        {/* Leaders Rendering */}
+        {activeLeaderType === 'board' ? (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {filteredTeam.map((member: TeamMember) => (
+              <div 
+                key={member.id}
+                onClick={() => setSelectedMemberId(selectedMemberId === member.id ? null : member.id)}
+                className="bg-white border border-slate-100 rounded-2xl p-6 shadow-sm hover:shadow-md hover:border-blue-500/10 transition-all cursor-pointer relative flex flex-col justify-between"
+              >
+                <div>
+                  {/* Standard abstract initial circle instead of random face placeholders for cleaner corporate design */}
+                  <div className="w-16 h-16 bg-blue-100 text-blue-900 rounded flex items-center justify-center font-bold text-xl mb-4">
+                    {member.name.split(' ').filter(n => !n.includes('(')).map(n => n[0]).join('')}
+                  </div>
+                  
+                  <h3 className="font-extrabold text-slate-900 text-base leading-snug">{member.name}</h3>
+                  <p className="text-amber-600 text-xs font-bold mt-1 uppercase tracking-wider">{member.role}</p>
+                  
+                  <div className={`mt-4 text-xs text-slate-550 leading-relaxed font-light ${
+                    selectedMemberId === member.id ? 'block' : 'line-clamp-3'
+                  }`}>
+                    {member.bio}
+                  </div>
                 </div>
-                
-                <h3 className="font-extrabold text-slate-900 text-base leading-snug">{member.name}</h3>
-                <p className="text-amber-600 text-xs font-bold mt-1 uppercase tracking-wider">{member.role}</p>
-                
-                <div className={`mt-4 text-xs text-slate-550 leading-relaxed font-light ${
-                  selectedMemberId === member.id ? 'block' : 'line-clamp-3'
-                }`}>
-                  {member.bio}
-                </div>
-              </div>
 
-              <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] font-bold text-blue-900">
-                <span>{selectedMemberId === member.id ? 'Collapse profile' : 'Show full bio'}</span>
-                <ChevronDown className={`h-4 w-4 transition-transform duration-300 ${selectedMemberId === member.id ? 'rotate-180' : ''}`} />
+                <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] font-bold text-blue-900">
+                  <span>{selectedMemberId === member.id ? 'Collapse profile' : 'Show full bio'}</span>
+                  <ChevronDown className={`h-4 w-4 transition-transform duration-300 ${selectedMemberId === member.id ? 'rotate-180' : ''}`} />
+                </div>
               </div>
+            ))}
+          </div>
+        ) : (
+          <div className="bg-white rounded-3xl border border-slate-100 shadow-sm overflow-hidden">
+            {/* Table Header */}
+            <div className="overflow-x-auto">
+              <table className="min-w-full divide-y divide-slate-150">
+                <thead className="bg-slate-50">
+                  <tr>
+                    <th scope="col" className="px-6 py-4 text-left text-xs font-bold text-slate-500 uppercase tracking-wider">
+                      Management Member
+                    </th>
+                    <th scope="col" className="px-6 py-4 text-left text-xs font-bold text-slate-500 uppercase tracking-wider">
+                      Position
+                    </th>
+                    <th scope="col" className="hidden md:table-cell px-6 py-4 text-left text-xs font-bold text-slate-500 uppercase tracking-wider">
+                      Professional Background
+                    </th>
+                    <th scope="col" className="px-6 py-4 text-right text-xs font-bold text-slate-500 uppercase tracking-wider">
+                      Action
+                    </th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-slate-100 bg-white">
+                  {filteredTeam.map((member: TeamMember) => {
+                    const isSelected = selectedMemberId === member.id;
+                    const initials = member.name.split(' ').filter(n => !n.includes('(')).map(n => n[0]).join('');
+                    
+                    return (
+                      <>
+                        <tr 
+                          key={member.id}
+                          onClick={() => setSelectedMemberId(isSelected ? null : member.id)}
+                          className="hover:bg-slate-50/70 transition-colors cursor-pointer"
+                        >
+                          <td className="px-6 py-5 whitespace-nowrap">
+                            <div className="flex items-center space-x-3.5">
+                              <div className="w-10 h-10 rounded-lg bg-blue-50 text-blue-900 border border-blue-100/50 flex items-center justify-center font-bold text-sm shrink-0">
+                                {initials}
+                              </div>
+                              <span className="text-sm font-extrabold text-slate-900">{member.name}</span>
+                            </div>
+                          </td>
+                          <td className="px-6 py-5 whitespace-nowrap">
+                            <span className="inline-flex items-center px-3 py-1 rounded text-xs font-bold bg-amber-50 text-amber-800 border border-amber-200/50">
+                              {member.role}
+                            </span>
+                          </td>
+                          <td className="hidden md:table-cell px-6 py-5">
+                            <p className="text-xs text-slate-500 line-clamp-1 font-light max-w-md">
+                              {member.bio}
+                            </p>
+                          </td>
+                          <td className="px-6 py-5 whitespace-nowrap text-right text-xs font-bold text-blue-900">
+                            <button className="inline-flex items-center space-x-1.5 ml-auto text-blue-900 hover:text-slate-900 cursor-pointer">
+                              <span>{isSelected ? 'Hide Bio' : 'View Bio'}</span>
+                              <ChevronDown className={`h-3.5 w-3.5 transition-transform duration-300 ${isSelected ? 'rotate-180' : ''}`} />
+                            </button>
+                          </td>
+                        </tr>
+                        {isSelected && (
+                          <tr key={`bio-${member.id}`} className="bg-slate-50/40">
+                            <td colSpan={4} className="px-8 py-5 text-xs sm:text-sm text-slate-600 font-light leading-relaxed border-t border-slate-100">
+                              <div className="max-w-4xl space-y-2">
+                                <h4 className="font-extrabold text-blue-950 text-xs uppercase tracking-wider">Biography & Portfolio Directive</h4>
+                                <p>{member.bio}</p>
+                              </div>
+                            </td>
+                          </tr>
+                        )}
+                      </>
+                    );
+                  })}
+                </tbody>
+              </table>
             </div>
-          ))}
-        </div>
+          </div>
+        )}
       </section>
 
     </div>

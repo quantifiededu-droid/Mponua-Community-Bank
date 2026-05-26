@@ -72,64 +72,22 @@ export default function Branches() {
           {/* Branch Details and Map (8 Cols) */}
           <div className="lg:col-span-8 space-y-6">
             
-            {/* Visual Simulated Map Interface */}
-            <div className="bg-blue-900/10 rounded-3xl h-64 overflow-hidden border border-gray-100 relative shadow-inner">
-              
-              {/* Abstract Map Grid Lines */}
-              <div className="absolute inset-0 opacity-[0.14] pointer-events-none" style={{ 
-                backgroundImage: 'radial-gradient(circle, #1e3a8a 1.5px, transparent 1.5px)', 
-                backgroundSize: '24px 24px' 
-              }} />
-
-              {/* Waterway accent */}
-              <div className="absolute -left-12 top-20 w-80 h-10 bg-blue-500/20 rounded-full blur-xl transform rotate-12" />
-              {/* Accra highway outline */}
-              <div className="absolute left-0 bottom-12 w-full h-2 bg-amber-500/10" />
-
-              {/* Dynamic Map Pins */}
-              {BRANCHES.map((b) => {
-                // Map local coordinate offsets to fit visual canvas elegantly
-                // Let's spread pins relative to Koforidua center
-                const latOffset = (b.coordinates.lat - 6.0917) * 400 + 130;
-                const lngOffset = (b.coordinates.lng - (-0.5)) * 400 + 200;
-                
-                const isSelected = b.id === selectedBranchId;
-
-                return (
-                  <button
-                    key={b.id}
-                    onClick={() => setSelectedBranchId(b.id)}
-                    className="absolute cursor-pointer transform -translate-x-1/2 -translate-y-1/2 transition-all p-1"
-                    style={{ 
-                      top: `${Math.max(20, Math.min(240, latOffset))}px`, 
-                      left: `${Math.max(20, Math.min(640, lngOffset))}px` 
-                    }}
-                    title={b.name}
-                  >
-                    <div className="flex flex-col items-center">
-                      {isSelected ? (
-                        <>
-                          <span className="bg-blue-900 text-white text-[10px] font-bold px-2 py-0.5 rounded shadow z-30 mb-1 border border-amber-400 shrink-0">
-                            {b.name.replace(' Branch', '').replace('Head Office & ', '')}
-                          </span>
-                          <div className="bg-amber-400 p-2 rounded-full shadow-lg border-2 border-white z-30 animate-bounce">
-                            <MapPin className="h-5 w-5 text-blue-900" />
-                          </div>
-                        </>
-                      ) : (
-                        <div className="bg-blue-805/80 hover:bg-blue-900 p-1.5 rounded-full shadow-md hover:scale-110 z-20">
-                          <MapPin className="h-4 w-4 text-white" />
-                        </div>
-                      )}
-                    </div>
-                  </button>
-                );
-              })}
+            {/* Visual Real Google Map Interface */}
+            <div className="bg-slate-100 rounded-3xl h-80 overflow-hidden border border-slate-200 relative shadow bg-slate-200">
+              <iframe
+                id="google_maps_iframe"
+                title={`${activeBranch.name} Google Map`}
+                src={`https://maps.google.com/maps?q=${encodeURIComponent(activeBranch.location + ' ' + activeBranch.name)}&t=&z=14&ie=UTF8&iwloc=&output=embed`}
+                className="w-full h-full border-0 select-none rounded-3xl"
+                allowFullScreen={false}
+                loading="lazy"
+                referrerPolicy="no-referrer"
+              />
 
               {/* Map Information Badge */}
-              <div className="absolute bottom-4 left-4 bg-blue-900 text-white text-[10px] px-3 py-1.5 rounded-lg font-bold flex items-center space-x-2 border border-blue-950 shadow">
+              <div className="absolute top-4 left-4 bg-blue-900/90 text-white text-[10px] px-3 py-1.5 rounded-lg font-bold flex items-center space-x-2 border border-blue-950 shadow">
                 <Navigation className="h-3 w-3 text-amber-400" />
-                <span>Eastern Ghana Interactive Regional Outlet Grid</span>
+                <span>Live Google Map: {activeBranch.name}</span>
               </div>
             </div>
 
